@@ -46,7 +46,8 @@ export function Pricing() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="veltor-btn-premium inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-veltor-black text-veltor-white text-[15px] font-medium"
+            data-magnetic="0.35"
+            className="veltor-btn-premium veltor-magnetic veltor-press inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-veltor-black text-veltor-white text-[15px] font-medium"
           >
             Receber Análise Estratégica
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
