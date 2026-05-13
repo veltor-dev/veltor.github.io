@@ -243,3 +243,197 @@
     animation: veltor-marquee 40s linear infinite;
   }
 }
+
+@layer utilities {
+  /* === PREMIUM FX SYSTEM ============================================ */
+
+  /* Reveal variants — mask reveal, blur-to-focus, line draw */
+  .reveal-mask {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transition:
+      clip-path 1200ms cubic-bezier(0.77, 0, 0.18, 1),
+      opacity 800ms ease-out;
+    will-change: clip-path, opacity;
+  }
+  .reveal-mask.is-visible {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .reveal-blur {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(1.04);
+    transition:
+      filter 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 1000ms ease-out,
+      transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: filter, transform, opacity;
+  }
+  .reveal-blur.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+
+  .reveal-line {
+    position: relative;
+  }
+  .reveal-line::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1400ms cubic-bezier(0.77, 0, 0.18, 1);
+  }
+  .reveal-line.is-visible::after { transform: scaleX(1); }
+
+  /* Parallax driver — controlled via JS data-parallax */
+  [data-parallax] {
+    transform: translate3d(0, var(--py, 0px), 0);
+    will-change: transform;
+  }
+
+  /* Tilt 3D card (driven by JS via --rx / --ry) */
+  .veltor-tilt {
+    transform: perspective(1200px)
+      rotateX(var(--rx, 0deg))
+      rotateY(var(--ry, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  /* Cursor-tracking glow overlay (driven by JS via --mx / --my) */
+  .veltor-glow-cursor {
+    position: relative;
+    isolation: isolate;
+  }
+  .veltor-glow-cursor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.10),
+      transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .veltor-glow-cursor:hover::before { opacity: 1; }
+  .veltor-glow-cursor > * { position: relative; z-index: 1; }
+
+  .veltor-glow-cursor-light::before {
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(0, 0, 0, 0.06),
+      transparent 55%
+    );
+  }
+
+  /* Magnetic element (driven by JS via --mx-px / --my-px) */
+  .veltor-magnetic {
+    transform: translate3d(var(--mx-px, 0), var(--my-px, 0), 0);
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+  .veltor-magnetic:active {
+    transform: translate3d(var(--mx-px, 0), var(--my-px, 0), 0) scale(0.96);
+    transition-duration: 120ms;
+  }
+
+  /* Animated mesh gradient ambient background */
+  @keyframes veltor-mesh-1 {
+    0%, 100% { transform: translate3d(-10%, -8%, 0) scale(1); }
+    50% { transform: translate3d(8%, 6%, 0) scale(1.15); }
+  }
+  @keyframes veltor-mesh-2 {
+    0%, 100% { transform: translate3d(15%, 10%, 0) scale(1.1); }
+    50% { transform: translate3d(-12%, -8%, 0) scale(0.9); }
+  }
+  @keyframes veltor-mesh-3 {
+    0%, 100% { transform: translate3d(0, 12%, 0) scale(0.95); }
+    50% { transform: translate3d(-8%, -10%, 0) scale(1.08); }
+  }
+
+  .veltor-mesh-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .veltor-mesh-bg::before,
+  .veltor-mesh-bg::after,
+  .veltor-mesh-bg > span {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+  .veltor-mesh-bg::before {
+    background: radial-gradient(closest-side, rgba(99, 102, 241, 0.35), transparent 70%);
+    animation: veltor-mesh-1 28s ease-in-out infinite;
+  }
+  .veltor-mesh-bg::after {
+    background: radial-gradient(closest-side, rgba(56, 189, 248, 0.28), transparent 70%);
+    animation: veltor-mesh-2 34s ease-in-out infinite;
+  }
+  .veltor-mesh-bg > span {
+    background: radial-gradient(closest-side, rgba(236, 72, 153, 0.22), transparent 70%);
+    animation: veltor-mesh-3 40s ease-in-out infinite;
+    opacity: 0.4;
+  }
+
+  /* Film grain noise overlay */
+  .veltor-noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* Premium press physics on any clickable */
+  .veltor-press {
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .veltor-press:active { transform: scale(0.97); transition-duration: 100ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .veltor-mesh-bg::before,
+    .veltor-mesh-bg::after,
+    .veltor-mesh-bg > span,
+    .veltor-float-3d,
+    .veltor-shimmer-text { animation: none !important; }
+    .reveal, .reveal-mask, .reveal-blur, .reveal-line::after {
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .veltor-mesh-bg::before,
+    .veltor-mesh-bg::after,
+    .veltor-mesh-bg > span {
+      animation-duration: 50s;
+      filter: blur(110px);
+      opacity: 0.4;
+    }
+    .veltor-noise { opacity: 0.03; }
+  }
+}
