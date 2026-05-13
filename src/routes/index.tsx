@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { usePremiumFx } from "@/hooks/use-premium-fx";
+import { AmbientBackground } from "@/components/veltor/AmbientBackground";
 import { Nav } from "@/components/veltor/Nav";
 import { Hero } from "@/components/veltor/Hero";
 import { TrustBar } from "@/components/veltor/TrustBar";
@@ -44,11 +45,13 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  useScrollReveal();
+  usePremiumFx();
   return (
-    <main className="bg-veltor-black">
-      <Nav />
-      <Hero />
+    <main className="relative bg-veltor-black overflow-hidden">
+      <AmbientBackground />
+      <div className="relative z-10">
+        <Nav />
+        <Hero />
       <TrustBar />
       <Positioning />
       <Philosophy />
@@ -59,8 +62,9 @@ function Index() {
       <Portfolio />
       <Testimonials />
       <Pricing />
-      <FinalCTA />
-      <Footer />
+        <FinalCTA />
+        <Footer />
+      </div>
     </main>
   );
 }

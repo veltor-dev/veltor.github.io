@@ -39,8 +39,9 @@ export function Testimonials() {
           {items.map((it, i) => (
             <figure
               key={it.name}
-              className="reveal veltor-card-hover bg-[oklch(0.985_0_0)] border border-veltor-line rounded-2xl p-8 md:p-10 flex flex-col"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              data-tilt="5"
+              className="reveal-blur veltor-tilt veltor-glow-cursor veltor-glow-cursor-light veltor-card-hover bg-[oklch(0.985_0_0)] border border-veltor-line rounded-2xl p-8 md:p-10 flex flex-col"
+              style={{ transitionDelay: `${i * 120}ms` }}
             >
               <svg
                 width="28"

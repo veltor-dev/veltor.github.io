@@ -38,8 +38,11 @@ export function TechAuthority() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 reveal">
-            <div className="relative rounded-3xl overflow-hidden bg-[oklch(0.04_0_0)]">
+          <div className="lg:col-span-7 reveal-blur" data-parallax="0.1">
+            <div
+              data-tilt="4"
+              className="veltor-tilt veltor-glow-cursor relative rounded-3xl overflow-hidden bg-[oklch(0.04_0_0)]"
+            >
               <img
                 src={techImage}
                 alt="Painéis 3D futuristas exibindo dashboards e métricas"

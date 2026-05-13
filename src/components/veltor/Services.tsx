@@ -79,8 +79,9 @@ export function Services() {
           {services.map((s, i) => (
             <div
               key={s.title}
-              className="reveal group bg-veltor-white p-10 md:p-14 transition-colors duration-300 hover:bg-[oklch(0.985_0_0)]"
-              style={{ transitionDelay: `${i * 60}ms` }}
+              data-tilt="5"
+              className="reveal-blur veltor-tilt veltor-glow-cursor veltor-glow-cursor-light group bg-veltor-white p-10 md:p-14 transition-colors duration-300 hover:bg-[oklch(0.985_0_0)]"
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="w-10 h-10 text-veltor-gray transition-transform duration-500 group-hover:-translate-y-1">
                 {s.icon}

@@ -37,8 +37,9 @@ export function Process() {
           {steps.map((s, i) => (
             <div
               key={s.n}
-              className="reveal bg-veltor-black p-10 group veltor-card-hover"
-              style={{ transitionDelay: `${i * 100}ms` }}
+              data-tilt="6"
+              className="reveal-blur veltor-tilt veltor-glow-cursor bg-veltor-black p-10 group veltor-card-hover"
+              style={{ transitionDelay: `${i * 120}ms` }}
             >
               <p className="veltor-display text-5xl text-veltor-white/30 group-hover:text-veltor-white/80 transition-colors duration-500">
                 {s.n}

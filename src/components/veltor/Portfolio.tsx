@@ -22,8 +22,11 @@ export function Portfolio() {
 
         <div className="mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {/* iMac large left */}
-          <div className="md:col-span-7 reveal">
-            <div className="aspect-[4/3] bg-[oklch(0.97_0_0)] rounded-2xl overflow-hidden">
+          <div className="md:col-span-7 reveal-blur" data-parallax="0.06">
+            <div
+              data-tilt="5"
+              className="veltor-tilt veltor-glow-cursor aspect-[4/3] bg-[oklch(0.97_0_0)] rounded-2xl overflow-hidden"
+            >
               <img
                 src={imac}
                 alt="Site institucional premium em iMac"
@@ -40,8 +43,15 @@ export function Portfolio() {
           </div>
 
           {/* iPhone tall right */}
-          <div className="md:col-span-5 reveal">
-            <div className="aspect-[4/3] bg-[oklch(0.97_0_0)] rounded-2xl overflow-hidden flex items-center justify-center p-6">
+          <div
+            className="md:col-span-5 reveal-blur"
+            data-parallax="0.12"
+            style={{ transitionDelay: "120ms" }}
+          >
+            <div
+              data-tilt="6"
+              className="veltor-tilt veltor-glow-cursor aspect-[4/3] bg-[oklch(0.97_0_0)] rounded-2xl overflow-hidden flex items-center justify-center p-6"
+            >
               <img
                 src={iphone}
                 alt="Loja virtual em iPhone"
@@ -58,8 +68,15 @@ export function Portfolio() {
           </div>
 
           {/* MacBook full bottom */}
-          <div className="md:col-span-12 reveal">
-            <div className="aspect-[16/9] bg-[oklch(0.12_0_0)] rounded-2xl overflow-hidden">
+          <div
+            className="md:col-span-12 reveal-blur"
+            data-parallax="0.05"
+            style={{ transitionDelay: "200ms" }}
+          >
+            <div
+              data-tilt="3"
+              className="veltor-tilt veltor-glow-cursor aspect-[16/9] bg-[oklch(0.12_0_0)] rounded-2xl overflow-hidden"
+            >
               <img
                 src={macbook}
                 alt="Landing page em MacBook"
