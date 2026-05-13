@@ -38,7 +38,8 @@ export function Nav() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="veltor-btn-premium text-[13px] font-medium px-4 py-1.5 rounded-full bg-veltor-white text-veltor-black"
+          data-magnetic="0.3"
+          className="veltor-btn-premium veltor-magnetic veltor-press text-[13px] font-medium px-4 py-1.5 rounded-full bg-veltor-white text-veltor-black"
         >
           Falar com Especialista
         </a>
