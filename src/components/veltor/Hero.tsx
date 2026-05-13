@@ -20,38 +20,49 @@ export function Hero() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-10 text-center">
-        <p className="veltor-eyebrow text-veltor-white/60 reveal">
+        <p className="veltor-eyebrow text-veltor-white/60 reveal-blur">
           Estúdio digital de alto padrão
         </p>
 
         <h1
-          className="veltor-display mt-6 text-[18vw] md:text-[12rem] lg:text-[14rem] leading-[0.85] reveal"
+          className="veltor-display mt-6 text-[18vw] md:text-[12rem] lg:text-[14rem] leading-[0.85] reveal-blur"
           style={{ letterSpacing: "-0.06em" }}
         >
           <span className="veltor-shimmer-text">VELTOR</span>
         </h1>
 
-        <p className="veltor-display mt-10 text-3xl md:text-5xl lg:text-6xl text-veltor-white max-w-4xl mx-auto reveal">
+        <p
+          className="veltor-display mt-10 text-3xl md:text-5xl lg:text-6xl text-veltor-white max-w-4xl mx-auto reveal-blur"
+          style={{ transitionDelay: "120ms" }}
+        >
           Presença digital que posiciona, encanta e converte.
         </p>
 
-        <p className="mt-6 text-base md:text-lg text-veltor-white/60 max-w-2xl mx-auto leading-relaxed reveal">
+        <p
+          className="mt-6 text-base md:text-lg text-veltor-white/60 max-w-2xl mx-auto leading-relaxed reveal"
+          style={{ transitionDelay: "260ms" }}
+        >
           Criamos sites sob medida para empresas que recusam o comum. Design global,
           engenharia de performance e estratégia de marca em uma única entrega.
         </p>
 
-        <div className="mt-10 flex items-center justify-center gap-4 reveal">
+        <div
+          className="mt-10 flex items-center justify-center gap-4 reveal"
+          style={{ transitionDelay: "380ms" }}
+        >
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="veltor-btn-premium inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-veltor-white text-veltor-black text-[15px] font-medium"
+            data-magnetic="0.35"
+            className="veltor-btn-premium veltor-magnetic veltor-press inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-veltor-white text-veltor-black text-[15px] font-medium"
           >
             Falar com Especialista
           </a>
           <a
             href="#servicos"
-            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-veltor-line-dark text-veltor-white text-[15px] font-medium hover:bg-veltor-white/5 transition-colors"
+            data-magnetic="0.25"
+            className="veltor-magnetic veltor-press veltor-glow-cursor inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-veltor-line-dark text-veltor-white text-[15px] font-medium hover:bg-veltor-white/5 transition-colors"
           >
             Ver serviços
           </a>
@@ -59,7 +70,10 @@ export function Hero() {
       </div>
 
       {/* Hero device mockup */}
-      <div className="relative mx-auto max-w-6xl px-6 md:px-10 mt-16 md:mt-24 reveal">
+      <div
+        className="relative mx-auto max-w-6xl px-6 md:px-10 mt-16 md:mt-24 reveal-blur"
+        data-parallax="0.08"
+      >
         <div
           aria-hidden
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[60%] rounded-full blur-3xl veltor-glow"
