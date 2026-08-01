@@ -32,6 +32,7 @@ export function Nav() {
           <a href="#beneficios" className="hover:text-veltor-white transition-colors">Benefícios</a>
           <a href="#investimento" className="hover:text-veltor-white transition-colors">Projetos</a>
           <a href="#portfolio" className="hover:text-veltor-white transition-colors">Portfólio</a>
+          <a href="/cases" className="hover:text-veltor-white transition-colors">Cases</a>
           <a href="#depoimentos" className="hover:text-veltor-white transition-colors">Compromisso</a>
         </nav>
         <a
